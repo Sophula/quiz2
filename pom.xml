@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>org.example</groupId>
     <artifactId>BTU_Project</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -10,8 +11,6 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <allure.testng.version>2.19.0</allure.testng.version>
-        <allure.rest-assured.version>2.19.0</allure.rest-assured.version>
     </properties>
 <dependencies>
     <!-- https://mvnrepository.com/artifact/org.webjars.npm/selenium-webdriver -->
@@ -39,40 +38,5 @@
         <version>5.2.0</version>
         <scope>test</scope>
     </dependency>
-    <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-rest-assured</artifactId>
-        <version>${allure.rest-assured.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-testng</artifactId>
-        <version>${allure.testng.version}</version>
-        <scope>test</scope>
-    </dependency>
 </dependencies>
-<build>
-    <plugins>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-        <configuration>
-                <suiteXmlFiles>
-                    <suiteXmlFile>TestNG.xml</suiteXmlFile>
-                </suiteXmlFiles>
-            <argLine>
-                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-            </argLine>
-        </configuration>          
-        <dependencies>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.6</version>
-        </dependency>
-    </dependencies>
-    </plugin>
-    </plugins>
-</build>
 </project>
